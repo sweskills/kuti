@@ -17,7 +17,7 @@ before_install:
 - if [ ! -d ${HOME}/google-cloud-sdk ]; then
      curl https://sdk.cloud.google.com | bash;
   fi
-- curl https://sdk.cloud.google.com | bash;  
+- export PATH="/usr/lib/google-cloud-sdk/bin:$PATH"    
 - tar -xzf credentials.tar.gz
 - gcloud auth activate-service-account --key-file client-secret.json
 after-success:
