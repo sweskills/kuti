@@ -28,7 +28,7 @@ before_install:
 - gcloud auth activate-service-account --key-file client-secret.json
 - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
 after_success:
-- gcloud compute ssh kuti
+- gcloud compute ssh kuti -q
 - cd /home/user/sites/kuti
 - git pull
 - sudo service nginx restart
