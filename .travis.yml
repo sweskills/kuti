@@ -25,9 +25,9 @@ before_install:
 - gcloud --version
 - gcloud auth activate-service-account --key-file client-secret.json
 - ssh-keygen -q -N "" -f ~/.ssh/google_compute_engine
-after_succes:
 # deploy:
 # - gcloud compute ssh kuti --zone us-central1-c -q
+after_succes:
 - ssh -i ~/.ssh/google_compute_engine 104.197.244.245
 - cd /home/user/sites/kuti
 - git pull
