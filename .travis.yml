@@ -19,7 +19,7 @@ before_install:
   fi
 - export PATH="${HOME}/google-cloud-sdk/bin:$PATH"
 - tar -xzf credentials.tar.gz
-- source ~/.bashrc
+- source /home/travis/google-cloud-sdk/path.bash.inc
 - gcloud --version
 # - gcloud auth activate-service-account --key-file client-secret.json
 # after-success:
