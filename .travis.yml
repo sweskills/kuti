@@ -19,7 +19,8 @@ before_install:
   fi
 - export PATH="${HOME}/google-cloud-sdk/bin:$PATH"
 - tar -xzf credentials.tar.gz
-- where gcloud
+- source ~/.bashrc
+- gcloud --version
 # - gcloud auth activate-service-account --key-file client-secret.json
 # after-success:
 # - gcloud compute ssh kuti
