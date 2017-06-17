@@ -26,7 +26,7 @@ before_install:
 # - mkdir -p lib
 - gcloud --version
 - gcloud auth activate-service-account --key-file client-secret.json
-after-success:
+after_success:
 - gcloud compute ssh kuti
 - cd /home/user/sites/kuti
 - git pull
