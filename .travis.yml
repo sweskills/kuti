@@ -1,6 +1,11 @@
 language: python
 python:
 - '2.7'
+cache:
+  directories:
+  - "$HOME/google-cloud-sdk/"
+env:
+- PATH=$PATH:${HOME}/google-cloud-sdk/bin CLOUDSDK_CORE_DISABLE_PROMPTS=1
 install:
 - pip install -r requirements.txt
 - gcloud config set project kuti
@@ -16,7 +21,6 @@ before_install:
 - mkdir -p lib
 - gcloud auth activate-service-account --key-file client-secret.json
 after-success:
-- gcloud config set project kuti
 - gcloud compute ssh kuti
 - cd /home/user/sites/kuti
 - git pull
