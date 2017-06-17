@@ -4,8 +4,8 @@ python:
 cache:
   directories:
   - "$HOME/google-cloud-sdk/"
-env:
-- GAE_PYTHONPATH=${HOME}/.cache/google_appengine PATH=$PATH:${HOME}/google-cloud-sdk/bin PYTHONPATH=${PYTHONPATH}:${GAE_PYTHONPATH} CLOUDSDK_CORE_DISABLE_PROMPTS=1
+# env:
+# - GAE_PYTHONPATH=${HOME}/.cache/google_appengine PATH=$PATH:${HOME}/google-cloud-sdk/bin PYTHONPATH=${PYTHONPATH}:${GAE_PYTHONPATH} CLOUDSDK_CORE_DISABLE_PROMPTS=1
 install:
 - pip install -r requirements.txt
 - gcloud config set project kuti
@@ -14,12 +14,10 @@ script:
 before_install:
 - openssl aes-256-cbc -K $encrypted_c622c07d672d_key -iv $encrypted_c622c07d672d_iv
   -in credentials.tar.gz.enc -out credentials.tar.gz -d
-- if [ ! -d ${HOME}/google-cloud-sdk ]; then
-     curl https://sdk.cloud.google.com | bash;
-  fi
-- export PATH="${HOME}/google-cloud-sdk/bin:$PATH"
-- tar -xzf credentials.tar.gz
+- if [ ! -d "$HOME/google-cloud-sdk/bin" ]; then rm -rf $HOME/google-cloud-sdk; curl https://sdk.cloud.google.com | bash; fi
+  # Add gcloud to $PATH
 - source /home/travis/google-cloud-sdk/path.bash.inc
+- tar -xzf credentials.tar.gz
 - gcloud --version
 # - gcloud auth activate-service-account --key-file client-secret.json
 # after-success:
