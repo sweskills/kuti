@@ -10,7 +10,7 @@ install:
 - pip install -r requirements.txt
 # - gcloud config set project kuti-170509
 script:
-- python test.py
+- python manage.py test
 # before_install:
 # - openssl aes-256-cbc -K $encrypted_c622c07d672d_key -iv $encrypted_c622c07d672d_iv
   # -in credentials.tar.gz.enc -out credentials.tar.gz -d
