@@ -12,6 +12,7 @@ class Config:
     KUTI_FOLLOWERS_PER_PAGE = 10
     KUTI_FOLLOWED_PER_PAGE = 10
     KUTI_COMMENTS_PER_PAGE = 10
+    LIVE_URL = "http://kuti.ml"
 
 
     @staticmethod
