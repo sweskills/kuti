@@ -157,19 +157,43 @@ class UserMixin(UserMixin, BaseMixin):
             url=url, hash=hash, size=size,
             default=default, rating=rating)
 
+Teacher_Subject = db.Table('Teacher_Subject',
+                           db.Column('teacher_id', db.Integer, db.ForeignKey('teachers.id')),
+                           db.Column('subject_id', db.Integer, db.ForeignKey('subjects.id')),
+                           db.PrimaryKeyConstraint('teacher_id', 'subject_id') )
 
-class Teacher(db.Model, UserMixin):
+# School_Credit = db.Table('School_Credit',
+#                            db.Column('school_id', db.Integer, db.ForeignKey('schools.id')),
+#                            db.Column('credit_id', db.Integer, db.ForeignKey('credits.id')),
+#                            db.PrimaryKeyConstraint('school_id', 'credit_id') )
+
+class User(db.Model, UserMixin):
+    __tablename__="users"
+    is_admin = db.Column(db.Boolean, default=False)
+
+class Teacher(User):
     __tablename__ = 'teachers'
-    pass
+    fullname = db.Column(db.String(64))
+    sex = db.Column(db.Boolean)
+    job_history = db.Column(db.Text)
+    educational_history = db.Column(db.Text)
+    certifications = db.Column(db.Text)
+    references = db.Column(db.Text)
+    subjects = db.relationship('Subject', secondary=Teacher_Subject, backref="teachers")
 
-class School(db.Model, UserMixin):
+class School(User):
     __tablename__ = 'schools'
-    pass
+    profile_form = db.Column(db.Text)
+    # credits = db.relationship('Credit', secondary=School_Credit, backref=schools)
+    credits = db.Column(db.Integer)
 
-# class Subject(db.Model, BaseMixin):
-#     __tablename__='subjects'
-#     pass
-#
+
+class Subject(db.Model, BaseMixin):
+    __tablename__='subjects'
+    id = db.Column(db.Integer, primary_key=True)
+
 # class Credit(db.Model, BaseMixin):
-#     __tablename__='subjects'
-#     pass
+#     __tablename__='credits'
+#     id = db.Column(db.Integer, primary_key=True)
+#     value = db.Column(db.Integer)
+#     name = db.Column(db.String(64))
