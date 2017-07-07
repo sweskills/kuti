@@ -1,11 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link rel="shortcut icon" href="{{ url_for('static', filename= 'images/favicon.ico') }}"
-        type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"
-        type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}"/>
-<script type="text/javascript" src="{{ url_for('static', filename='js/index.js')}}"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<title>Careers Form</title>
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 </head>
 <body>
-<h1 >Kuti's development is in progress and CI is set up.........</h1>
+    
+<div class="container">
+    
+    <header>
+        
+    <div class="row">
+    <h1 class="text-info">Career Profile</h1>
+    </div>
+    </header>
+	<div col-md-2></div>
+    <div col-md-8><div class="form-group has-success has-feedback">
+  <label class="control-label" for="username">Full name</label>
+  <input type="text" class="form-control" id="username" aria-describedby="usernameStatus">
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span id="na" class="help-block">Enter your full name!</span>
+</div>
+<div class="form-group has-warning has-feedback">
+  <label class="control-label" for="password">Contact Address</label>
+  <input type="text" class="form-control" id="address" aria-describedby="passwordStatus">
+  <span class="glyphicon glyphicon-warning-sign form-control-feedback" aria-hidden="true"></span>
+  <span id="contactStatus" class="help-block">Enter your home or work address</span>
+</div>
+<div class="form-group has-success has-feedback">
+  <label class="control-label" for="username">Email</label>
+  <input type="email" class="form-control" id="email" aria-describedby="emailStatus">
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span id="na" class="help-block">Enter a vaild email!</span>
+</div>
+<div class="form-group has-error has-feedback">
+  <label class="control-label" for="phone">Phone Number</label>
+  <input type="tel" class="form-control" id="phone" aria-describedby="phoneStatus">
+  <span class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+  <span id="phoneStatus" class="help-block">Please enter a valid phone number</span>
+</div>
+<div class="form-group has-success has-feedback">
+  <label class="control-label" for="username"Nationality</label>
+  <input type="text" class="form-control" id="nationality" aria-describedby="emailStatus">
+  <span class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+  <span id="na" class="help-block">Enter a country of origin!</span>
+</div>
+
+</div></div>
+    <div col-md-2> </div>
+
+		
+<!-- jQuery library -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<!-- Bootstrap JS -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script> 
 </body>
+</html>
