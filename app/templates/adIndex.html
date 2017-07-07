@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teacher Registration</title>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script  src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://necolas.github.io/normalize.css/7.0.0/normalize.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container col-md-6 col-md-offset-3">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">Submit Ad</h3>
+  </div>
+  <div class="panel-body">
+  <form  action="thankyou.html" class="form-horizontal">
+  <fieldset>
+    <legend>Job Requirement</legend>
+    <div class="form-group">
+      <label for="inputSchoolName" class="col-md-2 control-label">School Name</label>
+      <div class="col-md-6">
+        <input class="form-control" id="inputSchoolName" placeholder="School Name" type="text" required>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="inputJobTitle" class="col-md-2 control-label">Job Title</label>
+      <div class="col-md-6">
+        <input class="form-control" id="inputJobTitle" placeholder="Job Title" type="text" required>
+      </div>
+    </div>
+
+    <!--div class="form-group">
+      <label for="inputSubject" class="col-md-2 control-label">Subject</label>
+      <div class="col-md-6">
+        <input class="form-control" id="inputSubject" placeholder="Subject" type="text">
+      </div>
+    </div-->
+
+    <div class="form-group">
+      <label for="inputSubject" class="col-md-2 control-label" required>Subject</label>
+      <div class="col-md-6">
+        <select class="form-control" id="inputSubject" required>
+          <option>SELECT SUBJECT</option>
+          <option>MATHEMATICS</option>
+          <option>ENGLISH LANGUAGE</option>
+          <option>BIOLOGY</option>
+          <option>ECONOMINS</option>
+        </select>
+     </div>
+    </div>
+
+
+    <!--div class="form-group">
+      <label for="inputSalaryRange" class="col-md-2 control-label">Salary Range</label>
+      <div class="col-md-6">
+        <input class="form-control" id="inputSalaryRange" placeholder="Salary Range" type="text">
+      </div>
+    </div-->
+
+
+    <div class="form-group">
+      <label for="Salary Range" class="col-md-2 control-label">Salary Range</label>
+      <div class="col-md-3">
+        <!--div class="col-md-12"-->
+        <input class="form-control" id="MinSalary" Placeholder="Min Salary" type="text" required>
+        <!--/div-->
+     </div>
+
+<script language="JavaScript">
+$(function(){
+  $('#MinSalary').keypress(function(e){
+    if(e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which==54 || e.which==55 || e.which==56|| e.which==57) {
+    } else {
+      return false;
+    }
+  });
+});
+</script>
+
+    <div class="col-md-3">
+        <input class="form-control" id="MaxSalary" Placeholder="Max Salary" type="text" required>
+     </div>
+    </div>
+<script language="JavaScript">
+$(function(){
+  $('#MaxSalary').keypress(function(e){
+    if(e.which == 48 || e.which == 49 || e.which == 50 || e.which == 51 || e.which == 52 || e.which == 53 || e.which==54 || e.which==55 || e.which==56|| e.which==57) {
+    } else {
+      return false;
+    }
+  });
+});
+</script>
+
+
+    <div class="form-group">
+      <label for="Experience" class="col-md-2 control-label">Years of Experience</label>
+      <div class="col-md-6">
+        <select class="form-control" id="Experience" required>
+          <option value="1 yr">1 yr</option>
+          <option>2 yrs</option>
+          <option>3 yrs</option>
+          <option>4 yrs</option>
+          <option>5 yrs</option>
+        </select>
+     </div>
+    </div>
+
+
+
+    <div class="form-group">
+      <label for="Qualification" class="col-md-2 control-label">Qualification</label>
+      <div class="col-md-6">
+        <select class="form-control" id="Qualification" required>
+          <option> SELECT QUALIFICATION</option>
+          <option>NCE</option>
+          <option>ND</option>
+          <option>HND</option>
+          <option>B.Sc</option>
+        </select>
+     </div>
+    </div>
+
+
+ <div class="form-group">
+      <label for="JobDescription" class="col-md-2 control-label">Job Description</label>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="3" id="JobDescription" required></textarea>
+        <!--span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span-->
+
+
+        <div class="checkbox col-md-9">
+          <label>
+            <input type="checkbox" required> Confirm The Form Details
+          </label>
+        </div>
+
+
+
+      </div>
+    </div>
+
+    <!--div class="form-group">
+      <div class="col-md-6">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Confirm The Form Details
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <!--div class="form-group">
+      <label for="inputPassword" class="col-md-2 control-label">Password</label>
+      <div class="col-md-6">
+        <input class="form-control" id="inputPassword" placeholder="Password" type="password">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox"> Checkbox
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="textArea" class="col-md-2 control-label">Textarea</label>
+      <div class="col-md-6">
+        <textarea class="form-control" rows="3" id="textArea"></textarea>
+        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-md-2 control-label">Radios</label>
+      <div class="col-md-6">
+        <div class="radio">
+          <label>
+            <input name="optionsRadios" id="optionsRadios1" value="option1" checked="" type="radio">
+            Option one is this
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input name="optionsRadios" id="optionsRadios2" value="option2" type="radio">
+            Option two can be something else
+          </label>
+        </div>
+      </div>
+    </div-->
+    <!--div class="form-group">
+      <label for="select" class="col-md-2 control-label">Selects</label>
+      <div class="col-md-6">
+        <select class="form-control" id="select">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+        <br>
+        <!--select multiple="" class="form-control">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </div>
+    </div-->
+
+
+
+    <div class="form-group">
+      <div class="col-md-6 col-md-offset-2">
+        <button type="reset" class="btn btn-default">Cancel</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+  </div>
+</div>
+
+
+
+
+</div>
+</body>
+
+
+
+</html>
