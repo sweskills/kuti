@@ -31,6 +31,8 @@ def create_app(config_name):
     login_manager.init_app(app)
     pagedown.init_app(app)
     assets.init_app(app)
+    if config_name == "testing":
+        assets._named_bundles = {} # quick fix for flask testng and flask assets
     js = Bundle('js/index.js',filters='jsmin', output='gen/packed.js')
     assets.register('js_all', js)
     css = Bundle('css/index.css',filters='cssmin',output='css/min.css')
