@@ -21,7 +21,6 @@ Flask-SQLAlchemy==2.2
 Flask-Testing==0.6.2
 Flask-WTF==0.14.2
 gunicorn==19.7.1
-hashlib==20081119
 html5lib==0.999999999
 idna==2.5
 itsdangerous==0.24
