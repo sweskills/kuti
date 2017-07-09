@@ -16,8 +16,8 @@ from collections import OrderedDict
 
 #https://gist.github.com/techniq/5174410
 class BaseMixin(object):
-    created_at = Column(DateTime, default=datetime.now)
-    updated_at = Column(DateTime, default=datetime.now, onupdate=datetime.now)
+    created_at = Column(DateTime, default=datetime.utcnow)
+    updated_at = Column(DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     _repr_hide = ['created_at', 'updated_at']
 
     @classmethod
@@ -157,6 +157,41 @@ class UserMixin(UserMixin, BaseMixin):
             url=url, hash=hash, size=size,
             default=default, rating=rating)
 
+    @property
+    def is_active(self):
+        return True
+
+    @property
+    def is_authenticated(self):
+        return True
+
+    @property
+    def is_anonymous(self):
+        return False
+
+    def get_id(self):
+        try:
+            return text_type(self.id)
+        except AttributeError:
+            raise NotImplementedError('No `id` attribute - override `get_id`')
+
+    def __eq__(self, other):
+        '''
+        Checks the equality of two `UserMixin` objects using `get_id`.
+        '''
+        if isinstance(other, UserMixin):
+            return self.get_id() == other.get_id()
+        return NotImplemented
+
+    def __ne__(self, other):
+        '''
+        Checks the inequality of two `UserMixin` objects using `get_id`.
+        '''
+        equal = self.__eq__(other)
+        if equal is NotImplemented:
+            return NotImplemented
+        return not equal
+
 Teacher_Subject = db.Table('Teacher_Subject',
                            db.Column('teacher_id', db.Integer, db.ForeignKey('teachers.id')),
                            db.Column('subject_id', db.Integer, db.ForeignKey('subjects.id')),
@@ -173,27 +208,55 @@ class User(db.Model, UserMixin):
 
 class Teacher(User):
     __tablename__ = 'teachers'
+    id = db.Column(Integer, ForeignKey('users.id'), primary_key=True)
     fullname = db.Column(db.String(64))
     sex = db.Column(db.Boolean)
     job_history = db.Column(db.Text)
     educational_history = db.Column(db.Text)
     certifications = db.Column(db.Text)
     references = db.Column(db.Text)
+    searching = db.Column(db.Boolean)
     subjects = db.relationship('Subject', secondary=Teacher_Subject, backref="teachers")
 
 class School(User):
     __tablename__ = 'schools'
+    id = db.Column(Integer, ForeignKey('users.id'), primary_key=True)
     profile_form = db.Column(db.Text)
     # credits = db.relationship('Credit', secondary=School_Credit, backref=schools)
     credits = db.Column(db.Integer)
+    ads = db.relationship('Ad', backref='school', lazy = 'dynamic')
 
 
 class Subject(db.Model, BaseMixin):
     __tablename__='subjects'
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(128))
+    ads = db.relationship('Ad', backref='subject', lazy = 'dynamic')
+
+class Ad(db.Model, BaseMixin):
+    __tablename__="ads"
+    id = db.Column(db.Integer, primary_key=True)
+    subject_id = db.Column(db.Integer, db.ForeignKey("subjects.id"))
+    school_id = db.Column(db.Integer, db.ForeignKey("schools.id"))
+    approved = db.Column(db.Boolean)
+    post_publish = db.Column(db.DateTime, default=datetime.utcnow)
+    experience = db.Column(db.Integer)
+    description = db.Column(db.Text)
+    salary_expectation = db.Column(db.Float)
+
+    def approve(self):
+        if not self.approved:
+            self.approved=True
+            self.post_publish=datetime.utcnow()
+            db.session.add(self)
+
 
 # class Credit(db.Model, BaseMixin):
 #     __tablename__='credits'
 #     id = db.Column(db.Integer, primary_key=True)
 #     value = db.Column(db.Integer)
 #     name = db.Column(db.String(64))
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
