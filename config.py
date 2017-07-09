@@ -7,7 +7,8 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     KUTI_MAIL_SUBJECT_PREFIX = '[KUTI]'
     KUTI_MAIL_SENDER = 'KUTI admin <kuti@sweskills.com>'
-    KUTI_ADMIN = os.environ.get('KUTI_ADMIN')
+    KUTI_ADMIN_USERNAME = os.environ.get('KUTI_ADMIN_USERNAME')
+    KUTI_ADMIN_PASSWORD = os.environ.get('KUTI_ADMIN_PASSWORD')
     KUTI_POST_PER_PAGE = 10
     KUTI_FOLLOWERS_PER_PAGE = 10
     KUTI_FOLLOWED_PER_PAGE = 10

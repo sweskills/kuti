@@ -3,6 +3,7 @@ import requests
 from flask import Flask
 # from app import create_app, db
 from flask_testing import LiveServerTestCase
+import os
 
 class FunctionalTest(LiveServerTestCase):
 
@@ -10,6 +11,8 @@ class FunctionalTest(LiveServerTestCase):
         app = Flask(__name__)
         app.config['TESTING'] = True
         app.config['LIVE_URL'] =  "http://kuti.ml"
+        app.config['KUTI_ADMIN_PASSWORD'] = os.environ.get("KUTI_ADMIN_PASSWORD")
+        app.config['KUTI_ADMIN_USERNAME'] = os.environ.get("KUTI_ADMIN_USERNAME")
         return app
 
     def setUp(self):

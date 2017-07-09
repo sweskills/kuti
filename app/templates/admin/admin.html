@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Kuti{% endblock title %}
+{% block scripts %}
+{{ super() }}
+{% endblock scripts %}
+{% block main_header %}
+{% endblock main_header %}
+{% block navbar %}
+<div class="fixed-header" >
+  <div class="navbar navbar-inverse container" role="navigation">
+    <div class="navabar-header">
+      <button type="button" class="navbar-toggle"
+      data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Kuti</a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav " style="width:90%">
+        <li ><a href="/">Home</a></li>
+        <li class="navbar-right"><a  href="#">Register as a Teacher</a></li>
+        <li class="navbar-right"><a  href="#">Register as a School</a></li>
+        {% if current_user.is_authenticated %}
+        <li class="navbar-right">
+          <a href="{{ url_for("auth.logout") }}">Sign Out</a></li>
+          {% if current_user.is_administrator %}
+          <li class="navbar-right">
+            <a href="{{ url_for("main.index") }}">Main site</a></li>
+          {%endif%}
+        {% else %}
+        <li class="navbar-right">
+          <a  id="sign_in" onclick="document.getElementById('login_modal').style.display='block'" href="#">Sign In</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+{% endblock navbar %}
+{% block page_content %}
+<h1 class="coming_soon container">Welcome to the admin Dashboard</h1>
+{% endblock page_content %}

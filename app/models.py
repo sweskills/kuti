@@ -1,6 +1,6 @@
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+from flask_login import UserMixin, AnonymousUserMixin
 from . import login_manager
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app, request, abort
@@ -162,16 +162,12 @@ class UserMixin(UserMixin, BaseMixin):
         return True
 
     @property
-    def is_authenticated(self):
-        return True
-
-    @property
     def is_anonymous(self):
         return False
 
     def get_id(self):
         try:
-            return text_type(self.id)
+            return self.id
         except AttributeError:
             raise NotImplementedError('No `id` attribute - override `get_id`')
 
@@ -205,6 +201,10 @@ Teacher_Subject = db.Table('Teacher_Subject',
 class User(db.Model, UserMixin):
     __tablename__="users"
     is_admin = db.Column(db.Boolean, default=False)
+
+    def is_administrator(self):
+        return self.is_admin
+
 
 class Teacher(User):
     __tablename__ = 'teachers'
@@ -257,6 +257,12 @@ class Ad(db.Model, BaseMixin):
 #     value = db.Column(db.Integer)
 #     name = db.Column(db.String(64))
 
+class AnonymousUser(AnonymousUserMixin):
+
+    def is_administrator(self):
+        return False
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
+login_manager.anonymous_user = AnonymousUser
