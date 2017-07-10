@@ -1,11 +1,43 @@
-<head>
-<link rel="shortcut icon" href="{{ url_for('static', filename= 'images/favicon.ico') }}"
-        type="image/x-icon">
-<link rel="icon" href="{{ url_for('static', filename='images/favicon.ico') }}"
-        type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}"/>
-<script type="text/javascript" src="{{ url_for('static', filename='js/index.js')}}"></script>
-</head>
-<body>
-<h1 >Kuti's development is in progress and CI is set up.........</h1>
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/main.js"></script>
+<title>SCHOOL REGISTRATION FORM</title>
+<body background = "../static/images/bg.jpg">
+<div class="grid">
+  <h2 class="text-center center">School Registration Form</h2>
+<button id="id001" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Sign Up</button>
+</div>
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" style="width: 100%" name="SchoolRegistration" action="./OKpage.html" onSubmit="return validate()">
+    <div class="container nice">
+      <label class="b"><b>Username</b></label>
+      <input type="text" placeholder="Enter School Name" name="schoolname">
+
+      <label class="b"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email address" name="email">
+
+      <label><b>Password</b></label>
+      <input type="password" id="password" placeholder="Enter Password" name="psw">
+
+      <label><b>Confirm Password</b></label>
+      <input type="password" id="password2" placeholder="Confirm Password" name="psw-repeat">
+
+      <label><b>Mobile Number</b></label>
+      <input type="text" placeholder="Enter Mobile Number" name="mobilenumber">
+
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
 </body>
+</html>
