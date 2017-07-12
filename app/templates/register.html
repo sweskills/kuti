@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teachers' Registration</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<script  src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="  crossorigin="anonymous"></script>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+<link href="https://necolas.github.io/normalize.css/7.0.0/normalize.css" rel="stylesheet">
+<!--This is the first validation -->
+
+<SCRIPT LANGUAGE="JAVASCRIPT">
+<!--
+function validate(){
+	submitOK="True"
+	x=document.form1
+
+	emailattherate=x.email.value.indexOf("@")
+	if(emailattherate==-1)
+	{
+	alert("Invalid Email")
+	submitOK="False"
+	}
+	if(submitOK=="False")
+	{
+	return false
+	}
+}
+
+//function recorded(){
+	//alert("Thank you, your account has been created")  
+  
+    password=x.pwd.value
+    if (password.length==0) 
+    {
+    	alert("This password field cannot remain blank.")
+    	submitOK="False"
+    }
+    verifypassword=x.pwd1.value
+    if(verifypassword.length==0){
+    	alert("Please reenter password")
+    	submitOK="False"
+    }
+    if(password!=verifypassword)
+    {
+    	alert("Passwords do not match")
+    	submitOK="False"
+    }
+-->
+</SCRIPT>
+</head>
+
+<body>
+    <div class="container col-md-8 col-md-offset-2">
+        <div class="panel panel-primary">
+             <div class="panel-heading">
+                <h3 class="panel-title">Welcome</h3>
+            </div>
+
+            <div class="panel-body">
+           <form class="form-horizontal">
+  <fieldset>
+    <legend>Submit Details</legend>
+
+	 <div class="email">
+      <label for="inputemail" class="col-md-2 control-label">Email</label>
+      <div class="col-md-6">
+        <input class="email" id="email" placeholder="Enter mail here" type="email">
+      </div>
+    </div>
+   </fieldset>
+
+   <fieldset>
+    <div class="password">
+      <label for="password" class="col-md-2 control-label">Password</label>
+      <div class="col-md-6">
+        <input class="password" id="password" placeholder="Enter your passwod here" type="text">
+      </div>
+    </div>
+    </fieldset>
+
+    <fieldset>
+    <div class="verifypassword">
+      <label for="verifypassword" class="col-md-2 control-label">Confirm Password</label>
+      <div class="col-md-6">
+        <input class="verifypassword" id="verifypassword" placeholder="Type password again" type="text">
+      </div>
+    </div>
+    </fieldset>
+
+    <fieldset>
+    <div class="mobilenumber">
+      <label for="mobilenumber" class="col-md-2 control-label">Mobile Number</label>
+      <div class="col-md-6">
+        <input class="mobile-number" id="mobile-number" placeholder="Enter your mobile Number here" type="text">
+      </div>
+    </div>
+    </fieldset>
+
+    <fieldset>
+    <div class="col-md-6 col-md-offset-2">
+<button type="submit" action=form112.html class="btn btn-primary">Submit</button>
+<button type="reset" class="btn btn-default">Cancel</button>
+<!--<form method="link" action=horm112.html><i...type="submit" value="Send"></i...type="submit"></form>-->
+
+       <!--onClick=form.submit() a href=form11.html
+         <input type="reset" value="Reset">  -->
+<!--<h href="theLink"><button>SUbmit</button></a>   -->
+     
+      </div>
+    </fieldset>
+    </div>
+    </fieldset>
+    </form>
+    </div>
+</body>
+
+
+
+</html>  
