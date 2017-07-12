@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>School Profile Form - Capstone Project</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../static/css/profile.css">
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-info" id="accordion">
+	  		<div class="panel-heading">
+	  			<h3 class="panel-title text-center">
+              		<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion"
+                		href="#collapse">
+              			Welcome to the School Profile Form of the Capstone Project! <br>Please click here to fill it out...Thank You!
+              		</a>
+            	</h3>
+            </div>
+            <div id="collapse" class="panel-collapse collapse">
+	  			<div class="panel-body">
+	    			<form name="profile" method="post" action="">
+	    				<div class="row">
+		    				<div class="form-group col-md-6">
+	    						<label for="schoolname">Name of School <span style="color: red;">*</span></label>
+	   							 <input type="text" name="schoolname" class="form-control" id="schoolname" placeholder="e.g. Crescent Schools" required="">
+	  						</div>
+	  						<div class="form-group col-md-6">
+	    						<label for="location">Location <span style="color: red;">*</span></label>
+	    						<input type="text" name="location" class="form-control" id="location" placeholder="e.g. VI, Lagos" required="">
+	  						</div>
+	  						<div class="form-group col-md-12">
+	  							<label for="description">Brief Description <span style="color: red;">*</span></label>
+	  							<textarea class="form-control" rows="10" name="description" id="description" placeholder="Brief Description of School" required=""></textarea>
+	  						</div>
+  						</div>
+  						<button type="submit" value="submit" class="btn btn-info">Submit Info</button>
+	    			</form>
+	  			</div>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/bootstrap.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/jquery.validate.min.js"></script>
+
+	<script type="text/javascript" src="../static/js/profile.js"></script>
+</body>
+</html>
