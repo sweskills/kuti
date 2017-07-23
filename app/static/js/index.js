@@ -12,8 +12,18 @@ $(document).ready(function(){
         });
         
         if(currentSectionIndex === 3){
-            $(document).find(".form-wrapper.section").first().addClass("is-active");
+            $(document).find(".form-wrapper .section").first().addClass("is-active");
             $(document).find(".steps li").first().addClass("is-active");
         }
     });
+    
+/*    function ValidateEmail(mail)   
+{  
+ if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(myForm.emailAddr.value))  
+  {  
+    return (true)  
+  }  
+    alert("You have entered an invalid email address!")  
+    return (false)  
+} */ 
 });
