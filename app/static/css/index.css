@@ -132,7 +132,6 @@ fieldset{
 }
 
 .form-wrapper input[type="text"],
-.form-wrapper input[type="date"],
 .form-wrapper input[type="number"],
 .form-wrapper input[type="email"]
 {
@@ -145,6 +144,27 @@ fieldset{
     outline: none;
     font-size: 14px !important;
     font-family: 'Open Sans', sans-serif !important;
+
+}
+.form-wrapper input[type="date"]{
+  display: block;
+  padding: 10px;
+  margin: 10px auto;
+  background-color: #f1f1f1;
+  border: none;
+  width: 50%;
+  outline: none;
+  font-size: 14px !important;
+  font-family: 'Open Sans', sans-serif !important;
+  color: dimgrey;
+
+}
+
+.form-wrapper input[type="date"]:not(.has-Value):before
+{
+
+  content: attr(placeholder);
+
 
 }
 
