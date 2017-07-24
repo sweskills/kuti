@@ -21,16 +21,18 @@ button {
 
 /* Extra styles for the cancel button */
 .cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
+
 }
 
 /* Float cancel and signup buttons and add an equal width */
-.cancelbtn,.signupbtn {float:left;width:50%}
+.signupbtn {
+
+}
 
 /* Add padding to container elements */
 .container {
     padding: 16px;
+    background-color: white;
 }
 
 /* The Modal (background) */
@@ -95,7 +97,7 @@ body {
     max-height: 100%;
 }
 
-#id001 {
+#butt {
     margin-left: 45%;
 }
 
