@@ -107,7 +107,7 @@ input[type=text], input[type=password] {
   background-color: #fefefe;
   margin: 5px auto; /* 15% from the top and centered */
   border: 1px solid #888;
-  width: 82%; /* Could be more or less, depending on screen size */
+  width: 90%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button */
