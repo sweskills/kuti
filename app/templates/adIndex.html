@@ -24,7 +24,7 @@
     <h3 class="panel-title">Submit Ad</h3>
   </div>
   <div class="panel-body">
-  <form  action="thankyou.html" class="form-horizontal">
+  <form  action="index.html" class="form-horizontal">
   <fieldset>
     <legend>Job Requirement</legend>
     <div class="form-group">
@@ -41,13 +41,6 @@
       </div>
     </div>
 
-    <!--div class="form-group">
-      <label for="inputSubject" class="col-md-2 control-label">Subject</label>
-      <div class="col-md-6">
-        <input class="form-control" id="inputSubject" placeholder="Subject" type="text">
-      </div>
-    </div-->
-
     <div class="form-group">
       <label for="inputSubject" class="col-md-2 control-label" required>Subject</label>
       <div class="col-md-6">
@@ -55,29 +48,29 @@
           <option>SELECT SUBJECT</option>
           <option>MATHEMATICS</option>
           <option>ENGLISH LANGUAGE</option>
+          <option>CHEMISTRY</option>
+          <option>PHYSICS</option>
           <option>BIOLOGY</option>
           <option>ECONOMINS</option>
+          <option>AGRICULTURAL SCIENCE</option>
+          <option>GEOGRAPHY</option>
+          <option>YORUBA LANGUAGE</option>
+          <option>IGBO LANGUAGE</option>
+          <option>HAUSA LANGUAGE</option>
+          <option>COMPUTER STUDIES</option>
         </select>
      </div>
     </div>
 
 
-    <!--div class="form-group">
-      <label for="inputSalaryRange" class="col-md-2 control-label">Salary Range</label>
-      <div class="col-md-6">
-        <input class="form-control" id="inputSalaryRange" placeholder="Salary Range" type="text">
-      </div>
-    </div-->
-
-
     <div class="form-group">
       <label for="Salary Range" class="col-md-2 control-label">Salary Range</label>
       <div class="col-md-3">
-        <!--div class="col-md-12"-->
+       
         <input class="form-control" id="MinSalary" Placeholder="Min Salary" type="text" required>
-        <!--/div-->
+        
      </div>
-
+   <!-- this inline javascript is making sure alphabet does not work for the input type-->  
 <script language="JavaScript">
 $(function(){
   $('#MinSalary').keypress(function(e){
@@ -93,6 +86,8 @@ $(function(){
         <input class="form-control" id="MaxSalary" Placeholder="Max Salary" type="text" required>
      </div>
     </div>
+
+<!-- this inline javascript is making sure alphabet does not work for the input type-->
 <script language="JavaScript">
 $(function(){
   $('#MaxSalary').keypress(function(e){
@@ -109,11 +104,11 @@ $(function(){
       <label for="Experience" class="col-md-2 control-label">Years of Experience</label>
       <div class="col-md-6">
         <select class="form-control" id="Experience" required>
-          <option value="1 yr">1 yr</option>
-          <option>2 yrs</option>
-          <option>3 yrs</option>
-          <option>4 yrs</option>
-          <option>5 yrs</option>
+          <option value="1 yr">Less than 1 year</option>
+          <option>1 to 2 years</option>
+          <option>3 to 5 years</option>
+          <option>6 to 10 years</option>
+          <option>11 years or more</option>
         </select>
      </div>
     </div>
@@ -129,6 +124,7 @@ $(function(){
           <option>ND</option>
           <option>HND</option>
           <option>B.Sc</option>
+          <option>M.Sc</option>
         </select>
      </div>
     </div>
@@ -138,7 +134,6 @@ $(function(){
       <label for="JobDescription" class="col-md-2 control-label">Job Description</label>
       <div class="col-md-6">
         <textarea class="form-control" rows="3" id="JobDescription" required></textarea>
-        <!--span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span-->
 
 
         <div class="checkbox col-md-9">
@@ -152,74 +147,6 @@ $(function(){
       </div>
     </div>
 
-    <!--div class="form-group">
-      <div class="col-md-6">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Confirm The Form Details
-          </label>
-        </div>
-      </div>
-    </div>
-
-    <!--div class="form-group">
-      <label for="inputPassword" class="col-md-2 control-label">Password</label>
-      <div class="col-md-6">
-        <input class="form-control" id="inputPassword" placeholder="Password" type="password">
-        <div class="checkbox">
-          <label>
-            <input type="checkbox"> Checkbox
-          </label>
-        </div>
-      </div>
-    </div>
-    <div class="form-group">
-      <label for="textArea" class="col-md-2 control-label">Textarea</label>
-      <div class="col-md-6">
-        <textarea class="form-control" rows="3" id="textArea"></textarea>
-        <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="col-md-2 control-label">Radios</label>
-      <div class="col-md-6">
-        <div class="radio">
-          <label>
-            <input name="optionsRadios" id="optionsRadios1" value="option1" checked="" type="radio">
-            Option one is this
-          </label>
-        </div>
-        <div class="radio">
-          <label>
-            <input name="optionsRadios" id="optionsRadios2" value="option2" type="radio">
-            Option two can be something else
-          </label>
-        </div>
-      </div>
-    </div-->
-    <!--div class="form-group">
-      <label for="select" class="col-md-2 control-label">Selects</label>
-      <div class="col-md-6">
-        <select class="form-control" id="select">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-        <br>
-        <!--select multiple="" class="form-control">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select>
-      </div>
-    </div-->
-
-
-
     <div class="form-group">
       <div class="col-md-6 col-md-offset-2">
         <button type="reset" class="btn btn-default">Cancel</button>
@@ -228,7 +155,7 @@ $(function(){
     </div>
   </fieldset>
 </form>
-  </div>
+</div>
 </div>
 
 
