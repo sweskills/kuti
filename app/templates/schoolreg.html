@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="../static/css/schmain.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript" src="../static/js/schmain.js"></script>
+<title>SCHOOL REGISTRATION FORM</title>
+</head>
+<body>
+<div class="grid">
+  <h2 class="text-center center">School Registration Form</h2>
+<button class="btn btn-info" id="butt" onclick="document.getElementById('modal').style.display='block'" style="width:auto;">Sign Up</button>
+</div>
+<div id="modal" class="modal col-md-12">
+  <span onclick="document.getElementById('modal').style.display='none'" class="close" title="Close Modal">×</span>
+  <form class="modal-content animate" style="width: 100%" name="SchoolRegistration" action="./schoolregOKpage.html" onSubmit="return validate()">
+    <div class="container col-md-6 col-md-offset-3">
+      <label class="b"><b>Username</b></label>
+      <input type="text" placeholder="Enter School Name" name="schoolname" class="form-control">
+
+      <label class="b"><b>Email</b></label>
+      <input type="text" placeholder="Enter Email address" name="email" class="form-control">
+
+      <label><b>Password</b></label></br><h6><span class="red">* Password must contain 6 characters</br>* Password must contain Uppercase</br>* Password cannot be 'password'</span></h6></label>
+      <input type="password" id="password" placeholder="Enter Password" name="psw" class="form-control">
+
+      <label><b>Confirm Password</b></label>
+      <input type="password" id="password2" placeholder="Confirm Password" name="psw-repeat" class="form-control">
+
+      <label><b>Mobile Number</b></label>
+      <input type="text" placeholder="Enter Mobile Number" name="mobilenumber" class="form-control">
+
+      <input type="checkbox" checked="checked"> Remember me
+      <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+      <div class="clearfix col-md-12">
+        <div class="col-md-6">
+        <button type="button" onclick="document.getElementById('modal').style.display='none'" class="btn btn-group btn-danger">Cancel</button>
+        </div>
+        <div class="col-md-6">
+        <button type="submit" class="btn btn-group">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
+</html>
