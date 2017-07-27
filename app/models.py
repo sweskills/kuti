@@ -227,7 +227,7 @@ class School(User):
     profile_form = db.Column(db.Text)
     # credits = db.relationship('Credit', secondary=School_Credit, backref=schools)
     credits = db.Column(db.Integer)
-    website = db.Column(String(128))
+    website = db.Column(db.String(128))
     ads = db.relationship('Ad', backref='school', lazy = 'dynamic')
 
 
