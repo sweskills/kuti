@@ -11,3 +11,8 @@ class LoginForm(Form):
     password = PasswordField('Password', validators=[Required()])
     remember_me = BooleanField('keep me logged in')
     submit = SubmitField('Log In')
+
+
+'''
+Next edit by mosud
+'''
