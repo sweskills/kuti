@@ -95,6 +95,9 @@ class UserMixin(UserMixin, BaseMixin):
     member_since = db.Column(db.DateTime(), default=datetime.utcnow)
     last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
     avatar_hash = db.Column(db.String(32))
+    address1 = db.Column(db.String(128))
+    address2 = db.Column(db.String(128))
+    location = db.Column(db.String(64))
 
     def ping(self):
         self.last_seen = datetime.utcnow()
@@ -208,7 +211,7 @@ class User(db.Model, UserMixin):
 
 class Teacher(User):
     __tablename__ = 'teachers'
-    id = db.Column(Integer, ForeignKey('users.id'), primary_key=True)
+    id = db.Column(db.Integer, ForeignKey('users.id'), primary_key=True)
     fullname = db.Column(db.String(64))
     sex = db.Column(db.Boolean)
     job_history = db.Column(db.Text)
@@ -220,10 +223,11 @@ class Teacher(User):
 
 class School(User):
     __tablename__ = 'schools'
-    id = db.Column(Integer, ForeignKey('users.id'), primary_key=True)
+    id = db.Column(db.Integer, ForeignKey('users.id'), primary_key=True)
     profile_form = db.Column(db.Text)
     # credits = db.relationship('Credit', secondary=School_Credit, backref=schools)
     credits = db.Column(db.Integer)
+    website = db.Column(String(128))
     ads = db.relationship('Ad', backref='school', lazy = 'dynamic')
 
 
