@@ -1,0 +1,32 @@
+body {
+	font-family: 'Lato', sans-serif;
+}
+
+.container {
+	margin-top: 10%; 
+}
+
+h3 > a {
+	font-size: 30px;
+}
+
+$errorMsgColor: #ff0000;
+
+.error {
+	color: $errorMsgColor;
+}
+
+form .error {
+	color: #ff0000;
+	font-style: italic;
+}
+
+p {
+	font-size: 25px;
+	font-style: italic;
+}
+
+img {
+	align-self: center;
+	margin: 0 auto;
+}
