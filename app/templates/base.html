@@ -45,7 +45,7 @@
         {% if current_user.is_authenticated %}
         <li class="navbar-right">
           <a href="{{ url_for("auth.logout") }}">Sign Out</a></li>
-          {% if current_user.is_administrator %}
+          {% if current_user.is_administrator() %}
           <li class="navbar-right">
             <a href="{{ url_for("admin.index") }}">Admin Dashboard</a></li>
           {%endif%}

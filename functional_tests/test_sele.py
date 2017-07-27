@@ -22,8 +22,8 @@ class RequirementsTest(FunctionalTest):
         name_box = self.driver.find_element_by_id("pass_box")
         submit_box = self.driver.find_element_by_id("login_submit")
 
-        name_box.send_keys()
-        password_box.send_keys()
+        name_box.send_keys("")
+        password_box.send_keys("")
         submit_box.click()
 
 if __name__=='__main__':
