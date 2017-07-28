@@ -1,6 +1,7 @@
 from flask import render_template, redirect, request, url_for, flash
 from . import auth
 from .forms import *
+from ..models import *
 from flask_login import current_user,\
         login_user, login_required, logout_user
 
@@ -35,3 +36,18 @@ def logout():
     logout_user()
     flash('You have been logged out.')
     return redirect(url_for('main.index'))
+
+@login_required
+@auth.route('/profileform', methods=['GET', 'POST'])
+def profile():
+    form = ProfileForm()
+    if form.validate_on_submit():
+        school = School.query.filter_by(id=current_user.id).first()
+        school.name = form.data.get("name")
+        school.location = form.data.get("location")
+        school.profile_form = form.data.get("profile_form")
+        db.session.add(school)
+        db.session.commit()
+        flash("Your details have been successfully submitted!")
+        return redirect(url_for('main.index'))
+    return render_template('profile.html', form=form)
