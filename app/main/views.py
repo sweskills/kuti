@@ -6,8 +6,8 @@ from .forms import *
 @main.app_context_processor
 def inject_values():
     return dict(
-        login_form=LoginForm())
-
+        login_form=LoginForm()        
+        )
 
 @main.route('/')
 def index():
