@@ -16,6 +16,19 @@ def inject_values():
         )
 
 
+@auth.route('/register_teacher', methods=['GET','POST'])
+def register():
+    form = TeacherForm()
+    if form.validate_on_submit():
+        teacher = Teacher(email = form.data.get('email'),password = form.data.get('password'), 
+            confirmed= form.data.get('confirmed'))
+        db.session.add(teacher)
+        db.session.commit()
+        flash("Teacher was successfully registered")
+        return redirect(url_for('main.index'))
+    return render_template('register.html', form=form)
+
+    
 @auth.before_app_request
 def before_request():
     if current_user.is_authenticated:
@@ -23,6 +36,7 @@ def before_request():
         # if not current_user.confirmed\
         #     and request.endpoint[:5] != 'auth.':
         #     return redirect(url_for('auth.unconfirmed'))
+
 
 @auth.route('/login', methods=['POST'])
 def login():
