@@ -31,4 +31,3 @@ class ProfileForm(Form):
     location = StringField('Location', validators=[Required()])
     profile_form = TextAreaField('Description', validators=[Required()])
     submit = SubmitField('Submit')
-

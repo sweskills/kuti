@@ -4,6 +4,9 @@ from .forms import *
 from ..models import *
 from flask_login import login_required, current_user
 
+from ..models import *
+from  .. import db 
+
 
 @main.app_context_processor
 def inject_values():
@@ -14,6 +17,7 @@ def inject_values():
 @main.route('/')
 def index():
     return render_template('index.html')
+
 
 @login_required
 @main.route('/school')
