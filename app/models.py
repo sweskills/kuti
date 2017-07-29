@@ -261,7 +261,7 @@ class Ad(db.Model, BaseMixin):
 #     value = db.Column(db.Integer)
 #     name = db.Column(db.String(64))
 
-class AnonymousUser(AnonymousUserMixin):
+class AnonymousUser(AnonymousUserMixin, User):
 
     def is_administrator(self):
         return False

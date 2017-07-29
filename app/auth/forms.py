@@ -1,5 +1,5 @@
 from flask_wtf import Form
-from wtforms import StringField, PasswordField, BooleanField, SubmitField
+from wtforms import StringField, PasswordField, BooleanField, SubmitField, TextAreaField
 from wtforms.validators import Required, Email, Length, Regexp, EqualTo
 from ..models import User
 from wtforms import ValidationError
@@ -7,12 +7,27 @@ from wtforms import ValidationError
 
 class LoginForm(Form):
     email = StringField('Email', validators=[Required(), Length(1, 64),
-                                             Email()])
+                                             Email])
     password = PasswordField('Password', validators=[Required()])
     remember_me = BooleanField('keep me logged in')
     submit = SubmitField('Log In')
 
 
-'''
-Next edit by mosud
-'''
+class schoolRegistrationForm(Form):
+    email = StringField('Email',
+                                validators=[Required(), Length(min=7, max=64)
+                                ])
+    password = PasswordField('New Password', validators=[
+                    Required(),
+                    EqualTo('Confirm Password', message='Passwords must match')
+                    ])
+    confirmPassword = PasswordField('Confirm Password', validators=[
+                        Required(), EqualTo('password', message='password must match')
+                        ])
+    register = SubmitField('Register')
+    
+class ProfileForm(Form):
+    name = StringField('Name', validators=[Required()])
+    location = StringField('Location', validators=[Required()])
+    profile_form = TextAreaField('Description', validators=[Required()])
+    submit = SubmitField('Submit')
