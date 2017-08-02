@@ -5,6 +5,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'advasgdv6r234b34837834864'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    SQLALCHEMY_TRACK_MODIFICATIONS=False
     KUTI_MAIL_SUBJECT_PREFIX = '[KUTI]'
     KUTI_MAIL_SENDER = 'KUTI admin <kuti@sweskills.com>'
     KUTI_ADMIN_USERNAME = os.environ.get('KUTI_ADMIN_USERNAME')
@@ -14,6 +15,7 @@ class Config:
     KUTI_FOLLOWED_PER_PAGE = 10
     KUTI_COMMENTS_PER_PAGE = 10
     LIVE_URL = "http://kuti.ml"
+
 
 
     @staticmethod
