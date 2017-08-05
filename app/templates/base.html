@@ -41,7 +41,9 @@
       <ul class="nav navbar-nav " style="width:90%">
         <li ><a href="/">Home</a></li>
         <li class="navbar-right"><a  href="#">Register as a Teacher</a></li>
-        <li class="navbar-right"><a  href="#">Register as a School</a></li>
+        <li class="navbar-right">
+          <a href="#">Register as a School</a>
+        </li>
         {% if current_user.is_authenticated %}
         <li class="navbar-right">
           <a href="{{ url_for("auth.logout") }}">Sign Out</a></li>
@@ -78,6 +80,7 @@
     {{ message }}
   </div>
   {% endfor %}
+
 <div id="login_modal" class="modal">
   <span onclick="document.getElementById('login_modal').style.display='none'"
           class="close" title="Close Modal">&times;</span>
@@ -106,6 +109,9 @@
       </div>
     </form>
   </div>
+
+
+
 {% block page_content %}
 {% endblock page_content%}
 {% endblock content %}

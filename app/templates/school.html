@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block page_content %}
+
+
+
+<ul class="nav nav-pills">
+<li><a href="#">The total number of registered school is  <span class="badge">{{ schools|length }}</span></a></li>
+</ul>
+
+
+<table class="table table-striped table-hover ">
+	<thead>
+		<!--td>S/N</td-->
+		<td>School Name</td>
+		<td>School Location</td>
+	</thead>
+	{% for sch in schools|sort(attribute='name') %} 
+		<tr>
+			<!--td>{{sch.id}}</td-->
+			<td>{{sch.name}}</td>
+			<td>{{sch.location}}</td>
+		</tr>
+				
+	{% endfor %}
+</table>
+
+{% endblock page_content %}
