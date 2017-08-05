@@ -8,7 +8,7 @@ from datetime import datetime
 import hashlib
 import bleach
 from sqlalchemy.ext.declarative import declared_attr
-from sqlalchemy import Column, Integer, DateTime, ForeignKey
+from sqlalchemy import Column, Integer, DateTime, ForeignKey, BigInteger
 from datetime import datetime
 from collections import OrderedDict
 # from markdown import markdown
@@ -88,7 +88,7 @@ class UserMixin(UserMixin, BaseMixin):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
-    phone_number = db.Column(db.Integer, unique=True)
+    phone_number = db.Column(db.BigInteger, unique=True)
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default=False)
     name = db.Column(db.String(64))
@@ -204,6 +204,8 @@ Teacher_Subject = db.Table('Teacher_Subject',
 class User(db.Model, UserMixin):
     __tablename__="users"
     is_admin = db.Column(db.Boolean, default=False)
+    school = db.relationship('School', backref="user")
+    teacher = db.relationship('Teacher', backref="user")
 
     def is_administrator(self):
         return self.is_admin

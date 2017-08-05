@@ -1,21 +1,16 @@
 {% extends "base.html" %}
-
 {% block main_header %}
 {% endblock main_header %}
-{% block content %}
-{{super()}}
+{% block page_content %}
 <div class="container">
   <h1 style="margin-top: 80px; text-align:center">School Profile</h1>
   <div>
     <p><span>School Name: </span>{{school.name}}</p>
     <p><span>Address Line 1: </span>{{school.address1}}</p>
-    <p><span>Address Line 2 (Optional): </span>{{school.address2}}</p>
-    <p><span>Address Line 3 (Optional): </span>{{school.address3}}</p>
+    <p><span>Address Line 2: </span>{{school.address2}}</p>
     <p><span>Location: </span>{{school.location}}</p>
     <p><span>Website: </span>{{school.website}}</p>
     <p><span>Phone Number: </span>{{school.phone_number}}</p>
   </div>
 </div>
-{% block page_content %}
 {% endblock page_content%}
-{% endblock content %}
