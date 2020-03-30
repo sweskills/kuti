@@ -1,6 +1,6 @@
 alembic==0.9.2
 Babel==2.4.0
-bleach==2.0.0
+bleach==3.1.4
 blinker==1.4
 certifi==2017.4.17
 chardet==3.0.4
